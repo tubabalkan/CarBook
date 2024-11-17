@@ -63,7 +63,7 @@ namespace CarBook.WebApi.Controllers
         [HttpGet("GetCarWithBrand")]
         public  IActionResult GetCarWithBrand()
         {
-            var values= _getCarQueryHandler.Handle();
+            var values= _getCarWithBrandQuerHandler.Handle();
             return Ok(values);
         }
     }
