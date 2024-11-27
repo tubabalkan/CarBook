@@ -20,8 +20,10 @@ namespace CarBook.WebApi.Controllers
         private readonly UpdateCarCommandHandler _updateCarCommandHandler;
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
         private readonly GetCarWithBrandQuerHandler _getCarWithBrandQuerHandler;
+        private readonly GetLast5CarsWithBrandsQueryHandler _getLast5CarsWithBrandsQueryHandler;
 
-        public CarssController(GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, GetCarWithBrandQuerHandler getCarWithBrandQuerHandler)
+
+        public CarssController(GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, GetCarWithBrandQuerHandler getCarWithBrandQuerHandler, GetLast5CarsWithBrandsQueryHandler getLast5CarsWithBrandsQueryHandler)
         {
             _getCarQueryHandler = getCarQueryHandler;
             _getCarByIdQueryHandler = getCarByIdQueryHandler;
@@ -29,6 +31,7 @@ namespace CarBook.WebApi.Controllers
             _updateCarCommandHandler = updateCarCommandHandler;
             _removeCarCommandHandler = removeCarCommandHandler;
             _getCarWithBrandQuerHandler = getCarWithBrandQuerHandler;
+            _getLast5CarsWithBrandsQueryHandler = getLast5CarsWithBrandsQueryHandler;
         }
         [HttpGet]
         public async Task<IActionResult> CarList()
@@ -64,6 +67,12 @@ namespace CarBook.WebApi.Controllers
         public  IActionResult GetCarWithBrand()
         {
             var values= _getCarWithBrandQuerHandler.Handle();
+            return Ok(values);
+        }
+        [HttpGet("GetLast5CarsWithBrandsQueryHandler")]
+        public IActionResult GetLast5CarsWithBrandsQueryHandler()
+        {
+            var values = _getLast5CarsWithBrandsQueryHandler.Handle();
             return Ok(values);
         }
     }
