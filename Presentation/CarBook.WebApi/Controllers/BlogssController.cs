@@ -48,5 +48,11 @@ namespace CarBook.WebApi.Controllers
             await _mediator.Send(command);
             return Ok("Özellik Başarıyla Güncellendi");
         }
+        [HttpGet("GetLasy3BlogsWithAuthorsList")]
+        public async Task<IActionResult> GetLasy3BlogsWithAuthorsList()
+        {
+            var values = await _mediator.Send(new GetLasy3BlogsWithAuthorsQuery());
+            return Ok(values);
+        }
     }
 }
