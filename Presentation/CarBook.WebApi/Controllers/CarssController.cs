@@ -21,9 +21,10 @@ namespace CarBook.WebApi.Controllers
         private readonly RemoveCarCommandHandler _removeCarCommandHandler;
         private readonly GetCarWithBrandQuerHandler _getCarWithBrandQuerHandler;
         private readonly GetLast5CarsWithBrandsQueryHandler _getLast5CarsWithBrandsQueryHandler;
+        private readonly GetLastCarPricingQueryHandler _getLastCarPricingQueryHandler;
 
 
-        public CarssController(GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, GetCarWithBrandQuerHandler getCarWithBrandQuerHandler, GetLast5CarsWithBrandsQueryHandler getLast5CarsWithBrandsQueryHandler)
+        public CarssController(GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, GetCarWithBrandQuerHandler getCarWithBrandQuerHandler, GetLast5CarsWithBrandsQueryHandler getLast5CarsWithBrandsQueryHandler, GetLastCarPricingQueryHandler getLastCarPricingQueryHandler)
         {
             _getCarQueryHandler = getCarQueryHandler;
             _getCarByIdQueryHandler = getCarByIdQueryHandler;
@@ -32,6 +33,7 @@ namespace CarBook.WebApi.Controllers
             _removeCarCommandHandler = removeCarCommandHandler;
             _getCarWithBrandQuerHandler = getCarWithBrandQuerHandler;
             _getLast5CarsWithBrandsQueryHandler = getLast5CarsWithBrandsQueryHandler;
+            _getLastCarPricingQueryHandler = getLastCarPricingQueryHandler;
         }
         [HttpGet]
         public async Task<IActionResult> CarList()
@@ -75,5 +77,12 @@ namespace CarBook.WebApi.Controllers
             var values = _getLast5CarsWithBrandsQueryHandler.Handle();
             return Ok(values);
         }
+        [HttpGet("GetLastCarPricingQuery")]
+        public IActionResult GetLastCarPricingQuery()
+        {
+            var values = _getLastCarPricingQueryHandler.Handle();
+            return Ok(values);
+        }
+        
     }
 }
