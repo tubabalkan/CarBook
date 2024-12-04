@@ -1,13 +1,12 @@
-﻿using CarBook.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.CQRS.Results.CarResults
+namespace CarBook.Dto.CarPricingDtos
 {
-    public class GetLastCarPricingQueryResult
+    public class ResultCarPricingWithCarDto
     {
         public int CarId { get; set; }
         public int BrandId { get; set; }
@@ -22,6 +21,5 @@ namespace CarBook.Application.Features.CQRS.Results.CarResults
         public string BrandName { get; set; }
         public string PricingName { get; set; }
         public decimal PricingAmount { get; set; }
-
     }
 }
