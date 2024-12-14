@@ -4,7 +4,15 @@ namespace CarBook.WebUI.ViewComponents.BlogViewComponents
 {
     public class _BlogDetailsTagCloudComponentPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public _BlogDetailsTagCloudComponentPartial(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+        public async  Task<IViewComponentResult> InvokeAsync()
         {
             return View();
         }
