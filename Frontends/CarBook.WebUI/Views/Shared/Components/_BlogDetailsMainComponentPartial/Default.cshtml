@@ -7,20 +7,9 @@
 
     @await Component.InvokeAsync("_BlogDetailsCloudTagByBlogComponentPartial")
     @await Component.InvokeAsync("_BlogDetailsAuthorAboutComponentPartial")
-
-   
-
- 
-
-
     <div class="pt-5 mt-5">
         <h3 class="mb-5">Yorumlar</h3>
         @await Component.InvokeAsync("_CommentListByBlogComponentPartial")
         @await Component.InvokeAsync("_AddCommentComponentPartial")
-        
-        <!-- END comment-list -->
-
-       
     </div>
-
-</div> <!-- .col-md-8 -->
+</div>
