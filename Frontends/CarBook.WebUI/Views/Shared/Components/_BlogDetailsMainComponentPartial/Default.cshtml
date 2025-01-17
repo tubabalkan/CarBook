@@ -8,7 +8,7 @@
         <img src="~/carbook-master/images/image_6.jpg" alt="" class="img-fluid">
     </p> *@
 
-    @await Component.InvokeAsync("_BlogDetailsCloudTagByBlogComponentPartial")
+    @await Component.InvokeAsync("_BlogDetailsCloudTagByBlogComponentPartial",new {id=ViewBag.blogid})
     @await Component.InvokeAsync("_BlogDetailsAuthorAboutComponentPartial")
     <div class="pt-5 mt-5">
         <h3 class="mb-5">Yorumlar</h3>

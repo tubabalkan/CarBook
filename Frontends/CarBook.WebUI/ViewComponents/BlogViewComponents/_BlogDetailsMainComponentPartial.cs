@@ -15,6 +15,7 @@ namespace CarBook.WebUI.ViewComponents.BlogViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(int id)
         {
+          
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7001/api/Blogss/"+ id);
             if (responseMessage.IsSuccessStatusCode)
